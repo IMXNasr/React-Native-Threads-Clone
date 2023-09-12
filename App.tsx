@@ -1,9 +1,8 @@
-import React from "react";
 import { DefaultTheme, NavigationContainer } from "@react-navigation/native";
 import { StatusBar } from "react-native";
-import HomeScreen from "./screens/HomeScreen";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { bgColor, textColor } from "./utils/constants";
+import { HomeScreen } from "./screens";
 
 const Stack = createNativeStackNavigator();
 
