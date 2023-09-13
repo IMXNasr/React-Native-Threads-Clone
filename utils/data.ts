@@ -3,7 +3,7 @@ export const posts = [
 		id: "1",
     user: {
       id: "1",
-      username: "imx",
+      username: "itsimoox",
       image: "default_profile.png",
     },
     text: "Hello this is my first Thread !!",
@@ -14,7 +14,7 @@ export const posts = [
 		id: "2",
     user: {
       id: "1",
-      username: "imx2",
+      username: "itsimoox",
       image: "default_profile.png",
     },
     text: "How cool is that !!",

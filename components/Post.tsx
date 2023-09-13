@@ -13,9 +13,9 @@ const Post = ({ id, user, text, image, date_created }: any) => {
 		<Component>
 			<Content>
 				<Left>
-					<FollowBtn>
+					{/* <FollowBtn>
 						<IconF name="plus" size={15} color={bgColor} />
-					</FollowBtn>
+					</FollowBtn> */}
 					<UserImgContainer>
 						<UserImg source={require("../assets/default_profile.png")} />
 					</UserImgContainer>
