@@ -1,5 +1,5 @@
 import { Circle, Path, Svg } from "react-native-svg";
-import { inActiveIconColor, tabIconSize, tabIconStrokeWidth, textColor } from "../utils/constants";
+import { secondaryColor, tabIconSize, tabIconStrokeWidth, textColor } from "../utils/constants";
 
 const User = ({ size = tabIconSize, active }: { size?: number; active?: boolean }) => {
 	return (
@@ -11,8 +11,8 @@ const User = ({ size = tabIconSize, active }: { size?: number; active?: boolean 
 				</Svg>
 			) : (
 				<Svg width={size} height={size} viewBox="0 0 24 24" fill="none">
-					<Circle cx="12" cy="6" r="4" stroke={inActiveIconColor} strokeWidth={tabIconStrokeWidth} />
-					<Path d="M20 17.5C20 19.9853 20 22 12 22C4 22 4 19.9853 4 17.5C4 15.0147 7.58172 13 12 13C16.4183 13 20 15.0147 20 17.5Z" stroke={inActiveIconColor} strokeWidth={tabIconStrokeWidth} />
+					<Circle cx="12" cy="6" r="4" stroke={secondaryColor} strokeWidth={tabIconStrokeWidth} />
+					<Path d="M20 17.5C20 19.9853 20 22 12 22C4 22 4 19.9853 4 17.5C4 15.0147 7.58172 13 12 13C16.4183 13 20 15.0147 20 17.5Z" stroke={secondaryColor} strokeWidth={tabIconStrokeWidth} />
 				</Svg>
 			)}
 		</>

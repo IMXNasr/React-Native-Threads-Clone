@@ -2,6 +2,8 @@ import { styled } from "styled-components/native";
 import { Logo } from "../assets";
 import { View } from "react-native";
 import Tabs from "../components/Tabs";
+import { Post } from "../components";
+import { posts } from "../utils/data";
 
 const Header = () => {
 	return (
@@ -13,8 +15,11 @@ const Header = () => {
 const HomeScreen = () => {
 	return (
 		<>
-			<Screen>
+			<Screen showsVerticalScrollIndicator={false}>
 				<Header />
+				{posts.map((post, idx) => (
+					<Post {...post} key={idx} />
+				))}
 			</Screen>
 			<Tabs activeIcon="Home" />
 		</>

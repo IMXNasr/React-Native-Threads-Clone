@@ -2,7 +2,7 @@
 const DARK = true;
 export const bgColor = DARK ? "#000" : "#fff";
 export const textColor = DARK ? "#fff" : "#000";
-export const inActiveIconColor = "#808080";
+export const secondaryColor = "#808080";
 
 // SIZES:
 export const tabIconSize = 35;
