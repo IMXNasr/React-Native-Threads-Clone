@@ -11,42 +11,45 @@ const Post = ({ id, user, text, image, date_created }: any) => {
 	Image.getSize(image, (width: number, height: number) => setRatio(width / height));
 	return (
 		<Component>
-			<Left>
-				<FollowBtn>
-					<IconF name="plus" size={15} color={bgColor} />
-				</FollowBtn>
-				<UserImgContainer>
-					<UserImg source={require("../assets/default_profile.png")} />
-				</UserImgContainer>
-				<VLine />
-				<SmallUserImg>
-					<UserImg source={require("../assets/default_profile.png")} />
-				</SmallUserImg>
-			</Left>
-			<Right>
-				<Head>
-					<Username>{user.username}</Username>
-					<Info>
-						<Time>{date_created}</Time>
-						<IconE name="dots-three-horizontal" size={20} color={textColor} />
-					</Info>
-				</Head>
-				<Body>
-					<Text></Text>
-					<ImgContainer style={{ aspectRatio: ratio }}>
-						<Img source={{ uri: image }} />
-					</ImgContainer>
-					<Actions>
-						<IconI style={{ marginRight: 10 }} name="heart-outline" size={30} color={textColor} />
-						<IconI style={{ marginRight: 10, transform: [{ rotateY: "180deg" }] }} name="chatbubble-outline" size={25} color={textColor} />
-						<IconF style={{ marginRight: 10 }} name="repeat" size={24} color={textColor} />
-						<IconI style={{ marginRight: 10 }} name="paper-plane-outline" size={25} color={textColor} />
-					</Actions>
-				</Body>
-				<Foot>
-					<Reactions>2 replies · 29 likes</Reactions>
-				</Foot>
-			</Right>
+			<Content>
+				<Left>
+					<FollowBtn>
+						<IconF name="plus" size={15} color={bgColor} />
+					</FollowBtn>
+					<UserImgContainer>
+						<UserImg source={require("../assets/default_profile.png")} />
+					</UserImgContainer>
+					<VLine />
+					<SmallUserImg>
+						<UserImg source={require("../assets/default_profile.png")} />
+					</SmallUserImg>
+				</Left>
+				<Right>
+					<Head>
+						<Username>{user.username}</Username>
+						<Info>
+							<Time>{date_created}</Time>
+							<IconE name="dots-three-horizontal" size={20} color={textColor} />
+						</Info>
+					</Head>
+					<Body>
+						<Text>{text}</Text>
+						<ImgContainer style={{ aspectRatio: ratio }}>
+							<Img source={{ uri: image }} />
+						</ImgContainer>
+						<Actions>
+							<IconI style={{ marginRight: 10 }} name="heart-outline" size={30} color={textColor} />
+							<IconI style={{ marginRight: 10, transform: [{ rotateY: "180deg" }] }} name="chatbubble-outline" size={25} color={textColor} />
+							<IconF style={{ marginRight: 10 }} name="repeat" size={24} color={textColor} />
+							<IconI style={{ marginRight: 10 }} name="paper-plane-outline" size={25} color={textColor} />
+						</Actions>
+					</Body>
+					<Foot>
+						<Reactions>2 replies · 29 likes</Reactions>
+					</Foot>
+				</Right>
+			</Content>
+			<HLine />
 		</Component>
 	);
 };
@@ -54,12 +57,13 @@ const Post = ({ id, user, text, image, date_created }: any) => {
 export default Post;
 
 const Component = styled.View`
-	margin: 0 ${gap};
-	flex-direction: row;
 	margin-top: 10px;
 `;
+const Content = styled.View`
+	margin: 0 ${gap};
+	flex-direction: row;
+`;
 const Left = styled.View`
-	/* background-color: red; */
 	align-items: center;
 	justify-content: space-between;
 `;
@@ -98,11 +102,11 @@ const SmallUserImg = styled.View`
 	aspect-ratio: 1;
 	border-radius: 9999px;
 	overflow: hidden;
+	margin-bottom: 3px;
 `;
 const Right = styled.View`
 	flex: 1;
 	margin-left: 10px;
-	/* background-color: blue; */
 `;
 const Head = styled.View`
 	flex-direction: row;
@@ -123,6 +127,8 @@ const Time = styled.Text`
 const Body = styled.View``;
 const Text = styled.Text`
 	color: ${textColor};
+	font-size: 18px;
+	margin: 10px 0;
 `;
 const ImgContainer = styled.View`
 	border-radius: 10px;
@@ -145,4 +151,11 @@ const Foot = styled.View`
 const Reactions = styled.Text`
 	color: ${secondaryColor};
 	font-size: 18px;
+`;
+const HLine = styled.View`
+	width: 100%;
+	background-color: ${secondaryColor}55;
+	height: 1px;
+	border-radius: 9999px;
+	margin-top: 10px;
 `;
