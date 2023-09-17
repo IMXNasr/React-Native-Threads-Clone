@@ -5,17 +5,19 @@ import IconM from "react-native-vector-icons/MaterialCommunityIcons";
 import IconF from "react-native-vector-icons/FontAwesome6";
 import IconA from "react-native-vector-icons/AntDesign";
 import { posts } from "../utils/data";
+import { useState } from "react";
 
-const Navbar = ({ activeTab }: { activeTab: "Threads" | "Replies" | "Reposts" }) => {
+const Navbar = () => {
+	const [activeTab, setActiveTab] = useState<"Threads" | "Replies" | "Reposts">("Threads");
 	return (
 		<Nav>
-			<NavItem style={activeTab === "Threads" && { borderBottomColor: textColor, borderBottomWidth: 1 }}>
+			<NavItem onPress={() => setActiveTab("Threads")} style={activeTab === "Threads" && { borderBottomColor: textColor }}>
 				<NavItemText style={activeTab === "Threads" && { color: textColor }}>Threads</NavItemText>
 			</NavItem>
-			<NavItem style={activeTab === "Replies" && { borderBottomColor: textColor, borderBottomWidth: 1 }}>
+			<NavItem onPress={() => setActiveTab("Replies")} style={activeTab === "Replies" && { borderBottomColor: textColor }}>
 				<NavItemText style={activeTab === "Replies" && { color: textColor }}>Replies</NavItemText>
 			</NavItem>
-			<NavItem style={activeTab === "Reposts" && { borderBottomColor: textColor, borderBottomWidth: 1 }}>
+			<NavItem onPress={() => setActiveTab("Reposts")} style={activeTab === "Reposts" && { borderBottomColor: textColor }}>
 				<NavItemText style={activeTab === "Reposts" && { color: textColor }}>Reposts</NavItemText>
 			</NavItem>
 		</Nav>
@@ -27,15 +29,16 @@ const Nav = styled.View`
 	align-items: center;
 	justify-content: center;
 	margin-top: 10px;
-	border-bottom-style: solid;
 	border-bottom-width: 1px;
 	border-bottom-color: ${secondaryColor}77;
 `;
-const NavItem = styled.View`
+const NavItem = styled.Pressable`
 	flex: 1;
 	padding: 20px 0;
 	justify-content: center;
 	align-items: center;
+	border-width: 1px;
+	border-color: transparent;
 `;
 const NavItemText = styled.Text`
 	color: ${secondaryColor};
@@ -91,7 +94,7 @@ const ProfileScreen = () => {
 						</Btn>
 					</Btns>
 				</Top>
-				<Navbar activeTab="Threads" />
+				<Navbar />
 				{posts.map((post, idx) => (
 					<Post {...post} key={idx} />
 				))}

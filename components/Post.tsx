@@ -5,6 +5,7 @@ import IconI from "react-native-vector-icons/Ionicons";
 import IconF from "react-native-vector-icons/Feather";
 import { useState } from "react";
 import { Image } from "react-native";
+import { UserImg } from ".";
 
 const Post = ({ id, user, text, image, date_created }: any) => {
 	const [ratio, setRatio] = useState(0);
@@ -16,13 +17,9 @@ const Post = ({ id, user, text, image, date_created }: any) => {
 					{/* <FollowBtn>
 						<IconF name="plus" size={15} color={bgColor} />
 					</FollowBtn> */}
-					<UserImgContainer>
-						<UserImg source={require("../assets/default_profile.png")} />
-					</UserImgContainer>
+					<UserImg />
 					<VLine />
-					<SmallUserImg>
-						<UserImg source={require("../assets/default_profile.png")} />
-					</SmallUserImg>
+					<UserImg width={15} />
 				</Left>
 				<Right>
 					<Head>
@@ -67,12 +64,6 @@ const Left = styled.View`
 	align-items: center;
 	justify-content: space-between;
 `;
-const UserImgContainer = styled.View`
-	width: 50px;
-	aspect-ratio: 1;
-	border-radius: 9999px;
-	overflow: hidden;
-`;
 const FollowBtn = styled.View`
 	border-radius: 9999px;
 	background-color: ${textColor};
@@ -86,23 +77,12 @@ const FollowBtn = styled.View`
 	border: 2px solid ${bgColor};
 	right: 0;
 `;
-const UserImg = styled.Image`
-	width: 100%;
-	height: 100%;
-`;
 const VLine = styled.View`
 	flex: 1;
 	background-color: ${secondaryColor}77;
 	width: 2px;
 	border-radius: 9999px;
 	margin: 10px 0;
-`;
-const SmallUserImg = styled.View`
-	width: 15px;
-	aspect-ratio: 1;
-	border-radius: 9999px;
-	overflow: hidden;
-	margin-bottom: 3px;
 `;
 const Right = styled.View`
 	flex: 1;

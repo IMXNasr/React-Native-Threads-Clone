@@ -8,3 +8,6 @@ export const secondaryColor = "#808080";
 export const tabIconSize = 35;
 export const tabIconStrokeWidth = 1.5; //? Stuck at heart
 export const gap = "12px";
+
+
+export const activityTabs = ["All", "Follows", "Replies", "Mentions", "Quotes", "Reposts", "Verified"];
