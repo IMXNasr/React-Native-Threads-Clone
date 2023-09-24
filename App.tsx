@@ -4,9 +4,11 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { bgColor, textColor } from "./utils/constants";
 import { ActivityScreen, HomeScreen } from "./screens";
 import { ProfileScreen } from "./screens";
+import { SearchScreen } from "./screens";
 
 export type RootStackParamList = {
 	Home: undefined;
+	Search: undefined;
 	Profile: undefined;
 	Activity: undefined;
 };
@@ -24,8 +26,9 @@ const MyTheme = {
 const App = () => {
 	return (
 		<NavigationContainer theme={MyTheme}>
-			<Stack.Navigator initialRouteName="Activity" screenOptions={{ headerShown: false, animation: "none" }}>
+			<Stack.Navigator initialRouteName="Search" screenOptions={{ headerShown: false, animation: "none" }}>
 				<Stack.Screen name="Home" component={HomeScreen} />
+				<Stack.Screen name="Search" component={SearchScreen} />
 				<Stack.Screen name="Profile" component={ProfileScreen} />
 				<Stack.Screen name="Activity" component={ActivityScreen} />
 			</Stack.Navigator>
